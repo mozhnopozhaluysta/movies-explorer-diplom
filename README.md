@@ -30,3 +30,11 @@
 ### ССылка на макет работы в фигме:
 
 - https://disk.yandex.ru/d/KkMIFms4EVECXA
+
+### 
+
+IP 158.160.37.229
+
+Frontend https://tomikdiplom.nomoredomainsicu.ru
+
+Backend https://api.tomikdiplom.nomoredomainsicu.ru
