@@ -21,7 +21,7 @@
 
 ### ССылка на репозиторий
 
-- https://
+- https://mozhnopozhaluysta.github.io/movies-explorer-diplom/
 
 ### Ccылка на пулл реквест
 
