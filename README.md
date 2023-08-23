@@ -25,7 +25,7 @@
 
 ### Ccылка на пулл реквест
 
-- https://
+- https://github.com/mozhnopozhaluysta/movies-explorer-diplom/pull/1
 
 ### ССылка на макет работы в фигме:
 
