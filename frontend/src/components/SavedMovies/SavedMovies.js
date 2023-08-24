@@ -10,7 +10,7 @@ function SavedMovies({ loggedIn, savedMovies, onDeleteCard }) {
   // соответствующих поисковому запросу и критериям фильтрации.
   const [filteredMovies, setFilteredMovies] = useState(savedMovies)
   // Указывает, включен ли фильтр "коротких фильмов" или нет.
-  const [isShortFilm, setisShortFilm] = useState(false)
+  const [isShortMovies, setisShortMovies] = useState(false)
   // Указывает, пуст ли список отфильтрованных фильмов или нет.
   const [isNotFound, setIsNotFound] = useState(false)
   // Хранит текущий поисковый запрос, введенный пользователем.
@@ -21,15 +21,15 @@ function SavedMovies({ loggedIn, savedMovies, onDeleteCard }) {
   }
 
   function toggleShortFilmFilter() {
-    setisShortFilm(!isShortFilm)
+    setisShortMovies(!isShortMovies)
   }
 
   useEffect(() => {
     const moviesCardList = filterMovies(savedMovies, searchQuery)
     setFilteredMovies(
-      isShortFilm ? filterDuration(moviesCardList) : moviesCardList
+      isShortMovies ? filterDuration(moviesCardList) : moviesCardList
     )
-  }, [savedMovies, isShortFilm, searchQuery])
+  }, [savedMovies, isShortMovies, searchQuery])
 
   useEffect(() => {
     if (filteredMovies.length === 0) {

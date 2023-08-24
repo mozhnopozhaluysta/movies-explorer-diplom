@@ -6,9 +6,9 @@ import SearchError from "../SearchError/SearchError"
 import "./MoviesCardList.css"
 
 import {
-  numberOfMoviesDesktop,
-  tabletItemsPerPage,
-  mobileItemsPerPage,
+  NUMBER_OF_MOVIES_DESKTOP,
+  TABLET_ITEMS_PER_PAGE,
+  MOBILE_ITEMS_PER_PAGE,
 } from "../../utils/constants"
 
 function MoviesCardList({
@@ -40,14 +40,39 @@ function MoviesCardList({
   }
 
   useEffect(() => {
+    let resizeTimeout
+
+    function handleResize() {
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        calculateMoviesDisplay()
+      }, 500)
+    }
+    // Вызываем при монтировании компонента
     calculateMoviesDisplay()
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      clearTimeout(resizeTimeout)
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
-  useEffect(() => {
+  /* useEffect(() => {
+    calculateMoviesDisplay()
+  }, [])*/
+
+  /* useEffect(() => {
     setTimeout(() => {
       window.addEventListener("resize", calculateMoviesDisplay)
+      console.log("создан слушатель resize")
     }, 500)
-  })
+    return () => {
+      window.removeEventListener("resize", calculateMoviesDisplay)
+      console.log("удален слушатель resize")
+    }
+  })*/
 
   // Увеличивает количество отображаемых карточек при нажатии на кнопку "Ещё"
   function increaseShownMoviesCount() {
@@ -55,11 +80,11 @@ function MoviesCardList({
     console.log("width сколько отображать карточек от нажатия на кнопку еще")
     console.log(display)
     if (display > 1180) {
-      setShownMovies(shownMovies + numberOfMoviesDesktop)
+      setShownMovies(shownMovies + NUMBER_OF_MOVIES_DESKTOP)
     } else if (display > 767) {
-      setShownMovies(shownMovies + tabletItemsPerPage)
+      setShownMovies(shownMovies + TABLET_ITEMS_PER_PAGE)
     } else {
-      setShownMovies(shownMovies + mobileItemsPerPage)
+      setShownMovies(shownMovies + MOBILE_ITEMS_PER_PAGE)
     }
   }
 

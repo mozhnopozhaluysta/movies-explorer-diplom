@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://tomikdiplom.nomoredomainsicu.ru',
-  'http://tomikdiplom.nomoredomainsicu.ru',
+  'https://',
+  'http://',
   'https://localhost:3000',
   'https://localhost:3001',
   'http://localhost:3000',

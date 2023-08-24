@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react"
 import CurrentUserContext from "../../contexts/CurrentUserContext"
 import Header from "../Header/Header"
-import { emailRegex } from "../../utils/constants"
+import { EMAIL_REGEX } from "../../utils/constants"
 import useForm from "../../hooks/useForm"
 import "./Profile.css"
 
@@ -82,7 +82,7 @@ function Profile({ isLoading, signOut, onUpdateUser, loggedIn }) {
               required
               placeholder="Ваш Email"
               onChange={handleChangeInput}
-              pattern={emailRegex}
+              pattern={EMAIL_REGEX}
               value={enteredValues.email || ""}
             />
             <span className="profile__input-error">{errors.email}</span>

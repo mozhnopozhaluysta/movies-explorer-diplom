@@ -1,6 +1,6 @@
 import React from "react"
 import "../Form/Form.css"
-import { emailRegex } from "../../utils/constants"
+import { EMAIL_REGEX } from "../../utils/constants"
 import useForm from "../../hooks/useForm"
 import Form from "../Form/Form"
 
@@ -38,7 +38,7 @@ function Login({ onAuthorization, isLoading }) {
           required
           placeholder="Ваш Email"
           onChange={handleChangeInput}
-          pattern={emailRegex}
+          pattern={EMAIL_REGEX}
           value={enteredValues.email || ""}
         />
         <span className="form__input-error">{errors.email}</span>

@@ -1,7 +1,7 @@
 import React from "react"
 import Form from "../Form/Form"
 import useForm from "../../hooks/useForm"
-import { emailRegex } from "../../utils/constants"
+import { EMAIL_REGEX } from "../../utils/constants"
 import "../Form/Form.css"
 
 function Register({ onRegister, isLoading }) {
@@ -54,7 +54,7 @@ function Register({ onRegister, isLoading }) {
           required
           placeholder="Ваш Email"
           onChange={handleChangeInput}
-          pattern={emailRegex}
+          pattern={EMAIL_REGEX}
           value={enteredValues.email || ""}
         />
         <span className="form__input-error">{errors.email}</span>

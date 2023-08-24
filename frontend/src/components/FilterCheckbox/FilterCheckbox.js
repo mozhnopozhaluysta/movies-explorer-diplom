@@ -2,6 +2,7 @@ import React from "react"
 import "./FilterCheckbox.css"
 
 function FilterCheckbox({ onFilterMovies, isShortMovies }) {
+  console.log({ onFilterMovies, isShortMovies })
   return (
     <form className="filter">
       <input

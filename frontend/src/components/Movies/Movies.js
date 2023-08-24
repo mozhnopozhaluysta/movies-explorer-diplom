@@ -12,7 +12,7 @@ function Movies({ loggedIn, handleLikeFilm, onDeleteCard, savedMovies }) {
   const [isLoading, setIsLoading] = useState(false)
   const [initialCardsMovies, setInitialCardsMovies] = useState([])
   const [filteredMovies, setFilteredMovies] = useState([])
-  const [isShortFilm, setisShortFilm] = useState(false)
+  const [isShortMovies, setisShortMovies] = useState(false)
   const [isReqError, setisReqError] = useState(false)
   const [isNotFound, setIsNotFound] = useState(false)
 
@@ -28,17 +28,17 @@ function Movies({ loggedIn, handleLikeFilm, onDeleteCard, savedMovies }) {
   // Функция applySearchFilter используется для поиска фильмов
   function applySearchFilter(query) {
     localStorage.setItem("movieSearch", query)
-    localStorage.setItem("shortMovies", isShortFilm)
+    localStorage.setItem("shortMovies", isShortMovies)
 
     if (localStorage.getItem("allMovies")) {
       const movies = JSON.parse(localStorage.getItem("allMovies"))
-      handleMovieFiltering(movies, query, isShortFilm)
+      handleMovieFiltering(movies, query, isShortMovies)
     } else {
       setIsLoading(true)
       movies
         .getMovies()
         .then((cardsData) => {
-          handleMovieFiltering(cardsData, query, isShortFilm)
+          handleMovieFiltering(cardsData, query, isShortMovies)
           setisReqError(false)
           console.log(cardsData)
         })
@@ -53,8 +53,9 @@ function Movies({ loggedIn, handleLikeFilm, onDeleteCard, savedMovies }) {
   }
 
   function toggleShortFilmFilter() {
-    setisShortFilm(!isShortFilm)
-    if (!isShortFilm) {
+    console.log("включить чекбокс")
+    setisShortMovies(!isShortMovies)
+    if (!isShortMovies) {
       if (filterDuration(initialCardsMovies).length === 0) {
         setFilteredMovies(filterDuration(initialCardsMovies))
       } else {
@@ -63,15 +64,18 @@ function Movies({ loggedIn, handleLikeFilm, onDeleteCard, savedMovies }) {
     } else {
       setFilteredMovies(initialCardsMovies)
     }
-    localStorage.setItem("shortMovies", !isShortFilm)
+    localStorage.setItem("shortMovies", !isShortMovies)
+    console.log(!isShortMovies)
   }
 
   // Получение короткометражных фильмов из localStorage
   useEffect(() => {
     if (localStorage.getItem("shortMovies") === "true") {
-      setisShortFilm(true)
+      console.log(setisShortMovies)
+      setisShortMovies(true)
     } else {
-      setisShortFilm(false)
+      setisShortMovies(false)
+      console.log(setisShortMovies)
     }
   }, [])
 
@@ -106,7 +110,7 @@ function Movies({ loggedIn, handleLikeFilm, onDeleteCard, savedMovies }) {
       <SearchForm
         applySearchFilter={applySearchFilter}
         onFilterMovies={toggleShortFilmFilter}
-        isShortFilm={isShortFilm}
+        isShortMovies={isShortMovies}
       />
       <MoviesCardList
         cards={filteredMovies}

@@ -1,4 +1,4 @@
-import { maxShortDuration } from "./constants"
+import { MAX_SHORT_DURATION } from "./constants"
 
 // Функция для проверки ответа от сервера
 export const handleSendingRequest = (res) => {
@@ -23,7 +23,7 @@ export function filterMovies(movies, query) {
 
 // Подсчёт длительности фильмов:
 export function filterDuration(movies) {
-  return movies.filter((movie) => movie.duration < maxShortDuration)
+  return movies.filter((movie) => movie.duration < MAX_SHORT_DURATION)
 }
 
 //Эта функция durationConverter принимает значение длительности duration
