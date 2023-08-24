@@ -25,8 +25,16 @@
 
 ### Ccылка на пулл реквест
 
-- https://
+- https://github.com/mozhnopozhaluysta/movies-explorer-diplom/pull/1
 
 ### ССылка на макет работы в фигме:
 
 - https://disk.yandex.ru/d/KkMIFms4EVECXA
+
+### 
+
+IP 158.160.37.229
+
+Frontend https://tomikdiplom.nomoredomainsicu.ru
+
+Backend https://api.tomikdiplom.nomoredomainsicu.ru
